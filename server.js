@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import pokemonRoutes from "./routes/pokemonRoutes.js"
+import gameRoutes from "./routes/gameRoutes.js"
 
 const server = express();
 const port = 8080;
@@ -11,8 +12,11 @@ server.use(cors());
 
 server.use(express.json());
 
-// use Router
+// use Router for /pokemon
 server.use('/pokemon', pokemonRoutes)
+
+// use Router for /game
+server.use('/game', gameRoutes)
 
 // alternativ 404
 server.get("*", (req, res) => {

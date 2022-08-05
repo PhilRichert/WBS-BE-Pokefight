@@ -1,7 +1,7 @@
 import "dotenv/config"
 
 import mongoose from "mongoose"
-import Result from "../modals/result"
+import Result from "../modals/result.js"
 
 mongoose.connect(process.env.MONGO_URL, {
     user: process.env.MONGO_USER,
@@ -21,13 +21,12 @@ const game_results = async (req, res) => {
     res.send(results);
 }
 
-const game_create = async (req, res) => {
+const game_create_post = async (req, res) => {
     const {pokemonIdUi,pokemonIdPlayer,resultUi,resultPlayer} = req.body
     await Result.create({
         pokemonIdUi: pokemonIdUi,
         pokemonIdPlayer: pokemonIdPlayer,
-        winner: resultUi===resultPlayer ? "draw" :
-                resultUi>resultPlayer ? pokemonIdUi : pokemonIdPlayer,
+        winner: (resultUi===resultPlayer ? 0 : resultUi>resultPlayer ? pokemonIdUi : pokemonIdPlayer),
         result:{
             resultUi:resultUi,
             resultPlayer:resultPlayer
@@ -39,5 +38,5 @@ const game_create = async (req, res) => {
 
 export {
     game_results,
-    game_create
+    game_create_post
 }

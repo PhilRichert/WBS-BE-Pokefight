@@ -11,4 +11,4 @@ const resultSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
 })
 
-export default resultSchema
+export default mongoose.model("Result", resultSchema);
