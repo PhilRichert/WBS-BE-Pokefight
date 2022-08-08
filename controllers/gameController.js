@@ -38,7 +38,7 @@ const game_create_post = async (req, res) => {
                     resultPlayer:resultPlayer
                 },
                 date: Date.now()
-            });
+            })
             res.send("OK!")
         }
     } catch (error) {

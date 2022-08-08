@@ -21,8 +21,8 @@ server.use('/game', gameRoutes)
 // alternativ 404
 server.all("*", (req, res) => {
   res.send("Moin hier gibt es nichts zu sehen")
-});
+})
 
 server.listen(process.env.PORT ?? port, () => {
   console.log(`Server läuft auf ${port}`)
-});
+})
