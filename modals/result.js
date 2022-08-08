@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const resultSchema = new mongoose.Schema({
-    pokemonIdUi: Number,
+    pokemonIdNPC: Number,
     pokemonIdPlayer: Number,
     winner: Number,
     result:{
