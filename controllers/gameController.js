@@ -26,15 +26,15 @@ const game_results = async (req, res) => {
 }
 
 const game_create_post = async (req, res) => {
-    const {pokemonIdNPC, pokemonIdPlayer, resultUi, resultPlayer} = req.body
+    const {pokemonIdNPC, pokemonIdPlayer, resultNPC, resultPlayer} = req.body
     try {
         if ((pokemonIdNPC && pokemonIdPlayer) !== (undefined || 0)){
             await Result.create({
                 pokemonIdNPC: pokemonIdNPC,
                 pokemonIdPlayer: pokemonIdPlayer,
-                winner: (resultUi===resultPlayer ? 0 : resultUi>resultPlayer ? pokemonIdNPC : pokemonIdPlayer),
-                result:{
-                    resultUi:resultUi,
+                winner: (resultNPC===resultPlayer ? 0 : resultNPC>resultPlayer ? pokemonIdNPC : pokemonIdPlayer),
+                result: {
+                    resultNPC:resultNPC,
                     resultPlayer:resultPlayer
                 },
                 date: Date.now()

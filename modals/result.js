@@ -5,7 +5,7 @@ const resultSchema = new mongoose.Schema({
     pokemonIdPlayer: Number,
     winner: Number,
     result:{
-        resultUi: Number,
+        resultNPC: Number,
         resultPlayer: Number,
     },
     date: { type: Date, default: Date.now },
