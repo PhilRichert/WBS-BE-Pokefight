@@ -1,7 +1,7 @@
 import "dotenv/config"
 
 import mongoose from "mongoose"
-import Result from "../modals/result.js"
+import Result from "../models/result.js"
 
 mongoose.connect(process.env.MONGO_URL, {
     user: process.env.MONGO_USER,
